@@ -1,16 +1,11 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Welcome to Your Vue.js App" />
+  <inputEmail />
 </template>
-
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
-
+import inputEmail from "./components/input-email.vue";
 export default {
   name: "App",
-  components: {
-    HelloWorld,
-  },
+  components: { inputEmail },
 };
 </script>
 
@@ -22,5 +17,9 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+body {
+  margin: 0;
+  background: #eeee;
 }
 </style>
