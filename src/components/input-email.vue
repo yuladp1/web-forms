@@ -16,12 +16,18 @@
             <input type="checkbox" required v-model="accept"/>
             <label>Accept all terms</label>
         </div>
+      <label> Skills </label>
+      <input type="text" v-model="tempSkill" @keyup="addSkill">
+      <div v-for="skill in skills" :key="skill" class="pill">
+        {{skill}}
+      </div>
     </form>
     <div>
         <p>Email: {{email}}</p>
         <p>Password: {{password}}</p>
         <p>Role: {{role}}</p>
         <p>Accepting terms: {{accept}}</p>
+        <p>Names: {{name}}</p>
     </div>
   </div>
 </template> 
@@ -33,7 +39,18 @@ export default {
       password: "",
       role: "",
       accept: false,
+      name: [],
+      tempSkill: "",
+      skills: [],
     };
+  },
+  methods: {
+    addSkill(e) {
+      if (e.key === "," && this.tempSkill) {
+        this.skills.push(this.tempSkill), (this.tempSkill = "");
+        console.log(this.skills);
+      }
+    },
   },
 };
 </script>
@@ -77,5 +94,12 @@ input[type="chekbox"] {
 .terms {
   display: flex;
   flex-wrap: nowrap;
+}
+.names-cheking {
+  display: flex;
+  justify-content: space-around;
+}
+.names-cheking input {
+  width: 13px;
 }
 </style>
